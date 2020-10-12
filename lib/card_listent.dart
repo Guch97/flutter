@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:wexinApp/base_card.dart';
 
 class CardFree extends BaseCard{
+  @override
   _CardFreeState createState()=>_CardFreeState();
 }
 const BOOK_LIST=[
@@ -38,9 +40,47 @@ class _CardFreeState extends  BaseCardState{
     return super.topTitle('第 108 期');
   }
   _booklist(){
-
+    return GridView.count(crossAxisCount: 3,
+      // 垂直间距
+      mainAxisSpacing: 10,
+      // 水平间距
+      crossAxisSpacing: 15,
+      // 长宽比
+      childAspectRatio: 0.66,
+      padding:EdgeInsets.only(left:10,right:10),
+      children: BOOK_LIST.map<Widget>((item){
+          return __item(item);
+      }).toList(),
+    );
   }
   _bottomButtom(){
 
+  }
+  __item(Map<String,String>item){
+      return Container(
+        child:Column(
+          children: <Widget>[
+            // 绝对布局
+            Stack(
+              alignment: AlignmentDirectional.center,
+              children: <Widget>[
+                Image.network(''
+                    'http://www.devio.org/io/flutter_beauty/book_cover/${item['cover']}',fit:BoxFit.cover),
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius:BorderRadius.circular(20),
+                    color: Colors.black38,
+                  ),
+                  child: Icon(Icons.play_arrow,
+                  color: Colors.white,
+                  ),
+                )
+              ],
+            )
+          ],
+        ) ,
+      );
   }
 }
