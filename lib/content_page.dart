@@ -4,6 +4,7 @@ import 'package:wexinApp/customer_appbar.dart';
 import 'package:wexinApp/card_reconmmend.dart';
 import 'package:wexinApp/card_share.dart';
 import 'package:wexinApp/card_listent.dart';
+import 'package:wexinApp/card_special.dart';
 
 class ContentPager extends StatefulWidget{
   final ValueChanged<int>onPageChanged;
@@ -46,7 +47,7 @@ class _ContentPager extends State<ContentPager>{
             _WrapItem(CardRecommend()),
             _WrapItem(CardShare()),
             _WrapItem(CardFree()),
-            _WrapItem(CardRecommend()),
+            _WrapItem(CardSpecial()),
           ],
         ) ,)
       ],
